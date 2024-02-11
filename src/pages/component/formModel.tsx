@@ -1,9 +1,6 @@
 import React from "react";
 import { Imodal } from "@/data/dataType";
 import { AiOutlineClose } from "react-icons/ai";
-type Props = {
-	model: Imodal;
-};
 
 export default function FormModel({
 	children,
@@ -15,7 +12,12 @@ export default function FormModel({
 			<div className="modal-box relative bg-white">
 				<button
 					onClick={() => setModalOpen(false)}
-					className="btn btn-sm btn-circle absolute right-2 top-2 "
+					className="
+						btn btn-sm btn-circle 
+						absolute right-2 top-2
+						text-black 
+						border-none
+						btn-active btn-accent  hover:bg-emerald-600"
 				>
 					<AiOutlineClose />
 				</button>
@@ -23,15 +25,4 @@ export default function FormModel({
 			</div>
 		</div>
 	);
-}
-
-{
-	/* <input
-className="col-span-2  border-0 rounded-full bg-orange-200 text-black"
-type="text"
-placeholder="enter new task!"
-id="newTodo"
-value={newTodo}
-onChange={(e) => setNewTodo(e.target.value)}
-/> */
 }

@@ -1,23 +1,7 @@
-export interface Lists {
-	// date : Date,
-	info: {
-		isPass: boolean;
-		title: string;
-		details: string;
-	};
-	pass: number;
-	notPass: number;
-}
-
-export interface Imsg {
-	msg: string;
-	notiType: string;
-	title: string;
-}
-
 export interface Idatas {
 	id: string;
 	text: string;
+	isComplete: boolean;
 }
 
 export interface Imodal {

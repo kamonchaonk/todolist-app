@@ -25,20 +25,35 @@ export default function index({ posts }: Props) {
 					bg-gradient-to-b
 					from-orange-200
 					p-12
+					 
 				`}
 		>
 			<div
 				className={`  
 					min-h-[100%]
-					bg-gray-100
-					border-2 border-gray-200
+					bg-yellow-100
+					  border-gray-200
 					p-6
 					rounded-2xl
+					overflow-x-auto h-96
+			
 				`}
 			>
-				<div className="text-center flex flex-col gap-4">
-					<h1 className="mt-2 mb-2 text-2xl  font-bold">
-						Todo Lists App
+				<div className="text-center flex flex-col gap-2">
+					<h1 className="mt-4 mb-4 text-2xl  font-bold">
+						<span className="mr-2">Todo</span>
+						<span
+							className="
+							before:block 
+							before:absolute 
+							before:-inset-1 
+							before:-skew-y-3
+							before:bg-orange-500
+							relative inline-block"
+						>
+							<span className="relative text-white">Lists</span>
+						</span>
+						<span className="ml-2">App</span>
 					</h1>
 
 					<NewTask />
@@ -52,7 +67,7 @@ export default function index({ posts }: Props) {
 
 export async function getStaticProps() {
 	const posts = await getAllTasks();
-
+	console.log("posts", posts);
 	return {
 		props: {
 			posts,

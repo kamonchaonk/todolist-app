@@ -1,39 +1,30 @@
+"use client";
+
 import React from "react";
 
 import { Idatas } from "@/data/dataType";
-// import { getAllTasks } from "../api/callAPI";
+import TaskItem from "./taskItem";
+
 interface Props {
 	tasks: Idatas[];
 }
 
 const TodoList: React.FC<Props> = ({ tasks }) => {
-	// const tasks = getAllTasks();
-	// console.log("taskssss", tasks);
-
 	return (
-		<div className="box-content  h-500 w-auto px-12 mx-12  ">
-			<table className="table">
-				<thead>
+		<div className="box-content  px-14 mx-14">
+			<table className="table ">
+				<thead className="text text-black text-base ">
 					<tr>
+						<th></th>
 						<th>TasK</th>
-						<th>Actoion</th>
+						<th>Edit</th>
+						<th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
-					{tasks.map((task) => (
-						<tr key={task.id} className="border-none">
-							{/* <th>
-								<label>
-									<input
-										type="checkbox"
-										className="checkbox"
-									/>
-								</label>
-							</th> */}
-							<td>{task.text}</td>
-							<td> action</td>
-						</tr>
-					))}
+					{tasks.map((item) => {
+						return <TaskItem task={item} key={item.id} />;
+					})}
 				</tbody>
 			</table>
 		</div>

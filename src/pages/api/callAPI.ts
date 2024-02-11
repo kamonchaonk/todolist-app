@@ -22,11 +22,17 @@ export const getAllTasks = async (): Promise<Idatas[]> => {
 	return tasks;
 };
 
-export const editTask = async (): Promise<Idatas[]> => {
-	const datas = await fetch(`${baseUrl}/datas`);
-	const tasks = await datas.json();
+export const editTask = async (todo: Idatas): Promise<Idatas> => {
+	const res = await fetch(`${baseUrl}/datas/${todo.id}`, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(todo),
+	});
+	const updateTodo = await res.json();
 
-	return tasks;
+	return updateTodo;
 };
 
 export const addNewTask = async (todo: Idatas): Promise<void> => {
