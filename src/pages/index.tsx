@@ -67,7 +67,6 @@ export default function index({ posts }: Props) {
 
 export async function getStaticProps() {
 	const posts = await getAllTasks();
-	console.log("posts", posts);
 	return {
 		props: {
 			posts,
